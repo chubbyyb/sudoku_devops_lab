@@ -52,4 +52,8 @@ def solve_sudoku(board):
 def is_valid_board(board):
     if len(board) != 9 or any(len(row) != 9 for row in board):
         return False
+    # Check for non-numeric values
+    for row in board:
+        if not all(isinstance(x, (int, float)) or x == 0 for x in row):
+            return False
     return True
